@@ -24,5 +24,18 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.resource('book', 'BooksController')
-Route.resource('category', 'CategoriesController')
+Route.group(() => {
+  Route.group(() => {
+    Route.resource('buku', 'BooksController').apiOnly()
+    Route.resource('kategori', 'CategoriesController').apiOnly()
+    Route.get('peminjaman', 'BorrowsController.get')
+    Route.get('peminjaman/:id', 'BorrowsController.getById')
+    Route.post('buku/:id/peminjaman/', 'BorrowsController.createBorrow')
+    Route.post('register', 'UsersController.register')
+    Route.post('login', 'UsersController.login')
+    Route.post('logout', 'UsersController.logout')
+    Route.get('/me', 'UsersController.me').middleware('auth')
+    Route.post('/profile', 'UsersController.updateProfile').middleware('auth')
+  }).prefix('/v1')
+}).prefix('/api')
+
