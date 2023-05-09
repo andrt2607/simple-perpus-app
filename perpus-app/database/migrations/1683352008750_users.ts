@@ -10,14 +10,6 @@ export default class extends BaseSchema {
       table.string('password', 180).notNullable()
       table.string('remember_me_token').nullable()
       table.enu('role', ['user','petugas']).defaultTo('user')
-      // {
-      //   useNative: true,
-      //   enumName: 'user_role',
-      //   existingType: false
-      // })
-      /**
-       * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL
-       */
       table.timestamps(true,true)
     })
   }

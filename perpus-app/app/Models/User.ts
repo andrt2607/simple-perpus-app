@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel, hasOne, HasOne, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
 import Profile from './Profile'
+import Book from './Book'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -36,4 +37,13 @@ export default class User extends BaseModel {
     foreignKey: 'user_id'
   })
   public profile: HasOne<typeof Profile>
+
+    @manyToMany(() => Book, {
+    localKey: 'id',
+    pivotForeignKey: 'user_id',
+    relatedKey: 'id',
+    pivotRelatedForeignKey: 'books_id',
+    pivotTable: 'books'
+  })
+  public books: ManyToMany<typeof Book>
 }

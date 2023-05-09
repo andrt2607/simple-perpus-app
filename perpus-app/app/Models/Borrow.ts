@@ -25,9 +25,9 @@ export default class Borrow extends BaseModel {
 
   @manyToMany(() => User, {
     localKey: 'id',
-    pivotForeignKey: 'book_id',
+    pivotForeignKey: 'user_id',
     relatedKey: 'id',
-    pivotRelatedForeignKey: 'user_id',
+    pivotRelatedForeignKey: 'book_id',
     pivotTable: 'users'
   })
   public users: ManyToMany<typeof User>

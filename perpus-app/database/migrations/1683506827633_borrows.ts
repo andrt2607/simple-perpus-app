@@ -9,9 +9,9 @@ export default class extends BaseSchema {
       table.string('start_date')
       table.string('end_date')
       table.integer('user_id')
-      // .unsigned().references('id').inTable('users').onDelete('CASCADE')
+      .unsigned().references('users.id')
       table.integer('book_id')
-      // .unsigned().references('id').inTable('books').onDelete('CASCADE')
+      .unsigned().references('books.id')
       table.timestamps(true,true)
     })
   }

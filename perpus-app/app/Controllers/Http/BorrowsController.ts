@@ -3,6 +3,7 @@ import Borrow from 'App/Models/Borrow'
 
 export default class BorrowsController {
     public async get({response} : HttpContextContract){
+        // const borrowsResult = await Borrow.all()
         const borrowsResult = await Borrow.query().preload('users')
 
         if(borrowsResult.length==0){
