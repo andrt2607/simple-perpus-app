@@ -4,8 +4,9 @@ import Category from 'App/Models/Category'
 import CreateCategoryValidator from 'App/Validators/CreateCategoryValidator'
 
 export default class CategoriesController {
-    public async store({request, response} : HttpContextContract){
-        
+    public async store({auth, request, response} : HttpContextContract){
+        await auth.use('api').authenticate()
+        console.log('cek', auth.use('api').user!)
         const payload = await request.validate(CreateCategoryValidator)
 
         const category = await Category.create(payload)

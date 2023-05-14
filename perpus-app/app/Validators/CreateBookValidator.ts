@@ -23,6 +23,7 @@ export default class CreateBookValidator {
    *     ])
    *    ```
    */
+  //! NOTE : still bug
   public schema = schema.create({
     title: schema.string(),
     summary: schema.string(),
@@ -42,5 +43,7 @@ export default class CreateBookValidator {
    * }
    *
    */
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    // 'categories_id.exists': 'id di table category tidak ditemukan',
+  }
 }

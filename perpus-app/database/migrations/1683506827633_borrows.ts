@@ -12,6 +12,7 @@ export default class extends BaseSchema {
       .unsigned().references('users.id')
       table.integer('book_id')
       .unsigned().references('books.id')
+      table.unique(['user_id', 'book_id'])
       table.timestamps(true,true)
     })
   }

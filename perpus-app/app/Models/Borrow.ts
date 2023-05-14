@@ -31,9 +31,4 @@ export default class Borrow extends BaseModel {
     pivotTable: 'users'
   })
   public users: ManyToMany<typeof User>
-
-//   @hasMany(() => Book, {
-//     foreignKey: 'book_id'
-//   })
-//   public books: HasMany<typeof Book>
 }
