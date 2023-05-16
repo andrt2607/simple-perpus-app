@@ -3,6 +3,7 @@ import Book from 'App/Models/Book'
 import CreateBookValidator from 'App/Validators/CreateBookValidator'
 
 export default class BooksController {
+    
     public async store({request, response} : HttpContextContract){
         
         const payload = await request.validate(CreateBookValidator)

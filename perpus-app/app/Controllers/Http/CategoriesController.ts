@@ -4,6 +4,9 @@ import Category from 'App/Models/Category'
 import CreateCategoryValidator from 'App/Validators/CreateCategoryValidator'
 
 export default class CategoriesController {
+
+ 
+
     public async store({auth, request, response} : HttpContextContract){
         await auth.use('api').authenticate()
         console.log('cek', auth.use('api').user!)
@@ -17,7 +20,6 @@ export default class CategoriesController {
             data: category
         })
     }
-
     public async index({response} : HttpContextContract){
         const categories = await Category.query().preload('books')
 

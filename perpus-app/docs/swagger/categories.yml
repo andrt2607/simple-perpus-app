@@ -1,0 +1,29 @@
+/api/v1/kategori:
+  post:
+    tags:
+      - Categories
+    security: []
+    summary: Sample API
+    description: create kategori baru
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#definitions/Category'
+    responses:
+      201:
+        description: berhasil tambah kategori
+        example:
+          message: Hello guess
+  get:
+    tags:
+      - Categories
+    security: []
+    description: get all kategori
+    produces:
+      - application/json
+    responses:
+      200:
+        description: data dapat ditemukan
+  

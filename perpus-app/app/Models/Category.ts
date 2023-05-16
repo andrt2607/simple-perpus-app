@@ -3,6 +3,18 @@ import { BaseModel, HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Book from './Book'
 
 export default class Category extends BaseModel {
+  /**
+		* @swagger
+		* definitions:
+			*  Category:
+			*    type: object 
+      *    properties:
+      *     nama:
+      *       type: string
+      *     required:
+      *       - nama
+			* 
+		*/
   public static table = 'categories'
   @column({ isPrimary: true })
   public id: number
