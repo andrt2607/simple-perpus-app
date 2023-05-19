@@ -1,0 +1,50 @@
+/api/v1/peminjaman:
+  post:
+    tags:
+      - Borrow
+    security: 
+      - bearerAuth: []
+    summary: create peminjaman
+    description: create peminjaman baru
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: integer
+              book_id:
+                type: integer
+    responses:
+      201:
+        description: created
+  get:
+    tags:
+      - Borrow
+    security: 
+      - bearerAuth: []
+    summary: get all peminjaman
+    description: get all peminjaman
+    responses:
+      200:
+        description: success
+/api/v1/peminjaman/{borrowId}:
+  get:
+    tags:
+      - Borrow
+    security: 
+      - bearerAuth: []
+    summary: get peminjaman by id
+    description: get peminjaman berdasarkan id
+    parameters:
+        - in: path
+          name: borrowId
+          required: true
+          schema:
+            type: integer
+          description: id peminjaman yang dicari
+    responses:
+      200:
+        description: success

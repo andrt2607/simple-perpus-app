@@ -1,88 +1,85 @@
-/api/v1/kategori:
+/api/v1/book:
   post:
     tags:
-      - Categories
+      - Books
     security: 
       - bearerAuth: []
-    summary: Create kategori
-    description: create kategori baru
+    summary: create book
+    description: create book baru
     requestBody:
       required: true
       content:
         application/json:
           schema:
-            $ref: '#definitions/Category'
+            $ref: '#definitions/Book'
     responses:
       201:
-        description: success
+        description: created
   get:
     tags:
-      - Categories
+      - Books
     security: 
       - bearerAuth: []
-    summary: Get all kategori
-    description: get all kategori
-    produces:
-      - application/json
+    summary: get all books
+    description: get all book
     responses:
       200:
         description: success
-/api/v1/kategori/{kategoriId}:
+/api/v1/book/{bookId}:
   get:
     tags:
-      - Categories
+      - Books
     security: 
       - bearerAuth: []
-    summary: get kategori by id
-    description: create kategori baru
+    summary: get book by id
+    description: get book berdasarkan id
     parameters:
         - in: path
-          name: kategoriId
+          name: bookId
           required: true
           schema:
             type: integer
-          description: id kategori yang dicari
+          description: id book yang dicari
     responses:
       200:
         description: success
   put:
     tags:
-      - Categories
+      - Books
     security: 
       - bearerAuth: []
-    summary: update kategori by id
-    description: update kategori baru
+    summary: update book by id
+    description: update book berdasarkan id
     parameters:
         - in: path
-          name: kategoriId
+          name: bookId
           required: true
           schema:
             type: integer
-          description: id kategori yang diupdate
+          description: id book yang diupdate
     requestBody:
       required: true
       content:
         application/json:
           schema:
-            $ref: '#definitions/Category'
+            $ref: '#definitions/Book'
     responses:
       200:
         description: success
   delete:
     tags:
-      - Categories
+      - Books
     security: 
       - bearerAuth: []
-    summary: delete kategori by id
-    description: delete kategori
+    summary: delete book by id
+    description: delete book berdasarkan id
     parameters:
         - in: path
-          name: kategoriId
+          name: bookId
           required: true
           schema:
             type: integer
-          description: id kategori yang dihapus
+          description: id book yang dihapus
     responses:
       200:
         description: success
-  

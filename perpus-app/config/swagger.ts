@@ -15,6 +15,15 @@ export default {
 				title: 'Perpus Application Final Project Adonis',
 				version: '1.0.0',
 				description: 'Perpus App with swagger docs'
+			},
+			components: {
+				securitySchemes: {
+					bearerAuth: {
+						type: 'http',
+						scheme: 'bearer',
+						bearerFormat: 'JWT'
+					}
+				}
 			}
 		},
 

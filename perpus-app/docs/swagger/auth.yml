@@ -1,0 +1,119 @@
+/api/v1/login:
+  post:
+    tags:
+      - Auth
+    summary: Login
+    description: untuk login sistem
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+               type: string
+              password:
+               type: string
+          example:
+            email: fakritesveri@gmail.com
+            password: "12345677"
+    responses:
+      200:
+        description: success
+      401:
+        description: unauthorized
+/api/v1/register:
+  post:
+    tags:
+      - Auth
+    summary: register account
+    description: untuk buat akun sistem
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+               type: string
+              password:
+               type: string
+          example:
+            email: example@gmail.com
+            password: "12345678"
+    responses:
+      200:
+        description: success
+/api/v1/otp-verif:
+  post:
+    tags:
+      - Auth
+    summary: verify account
+    description: untuk verifikasi akun sistem dengan otp
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              otp_code:
+               type: string
+              email:
+               type: string
+          example:
+            otp_code: "58312"
+            email: fakritesveri@gmail.com
+    responses:
+      200:
+        description: success
+/api/v1/logout:
+  post:
+    tags:
+      - Auth
+    summary: logout
+    security: 
+      - bearerAuth: []
+    description: untuk keluar dari sistem
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email:
+               type: string
+              password:
+               type: string
+          example:
+            email: fakritesveri@gmail.com
+            password: "12345677"
+    responses:
+      200:
+        description: success
+/api/v1/profile:
+  post:
+    tags:
+      - Auth
+    summary: update data profil
+    description: untuk update data akun
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              address:
+               type: string
+              bio:
+               type: string
+          example:
+            address: dimana aja boleh
+            bio: aku ganteng
+    responses:
+      200:
+        description: success
