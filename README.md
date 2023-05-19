@@ -3,12 +3,3 @@
 ## Author
 Alif Andarta Al Falah
 
-## Email
-alifandarta26@gmail.com
-
-## Link Deploy
-
-## Contoh User
-email : 
-password :
-
